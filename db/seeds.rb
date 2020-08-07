@@ -159,4 +159,19 @@ genres = Hash[[
   "Synthpop"
 ].map { |genre| [genre, Genre.find_or_create_by(name: genre)] }]
 
+10.times do
+  num=rand(1...1000)
+  Artist.create!(name:"art #{num} tist")
+end
+1000.times do
+    num=rand(1...1000)
+    Song.create!(title:"sang#{num}song",artist_id: Artist.all.sample.id, genre_id: Genre.all.sample.id)
+end
+2000.times do
+    num=rand(1...10000)
+    num1=rand(10000...20000)
+    Note.create!(content:"#{num} content #{num1}", song_id:Song.all.sample.id)
+end
+
+puts "boom bang boom, done!"
 
